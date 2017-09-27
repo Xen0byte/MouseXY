@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gma.System.MouseKeyHook;
 
@@ -13,15 +8,22 @@ namespace MouseXY
 {
     public partial class Interface : Form
     {
+        #region Variables
         private IKeyboardMouseEvents m_GlobalHook;
 
         public static int XAxis { get; set; }
         public static int YAxis { get; set; }
+
         public static bool XLock = false;
         public static bool YLock = false;
         public static bool CLock = false;
+
         public static int CRad = 150;
         public static int CIncrement = 50;
+
+        int tempX = 0;
+        int tempY = 0;
+        #endregion
 
         public Interface()
         {
@@ -30,17 +32,58 @@ namespace MouseXY
             FormClosing += CleanUp;
         }
 
+        #region  Rectangle Constructor
+        // public Rectangle(int x, int y, int width, int height)
+        //
+        // Parameters:
+        //
+        // x:
+        // Type: System.Int32
+        // The x-coordinate of the upper-left corner of the rectangle.
+        //
+        // y:
+        // Type: System.Int32
+        // The y-coordinate of the upper-left corner of the rectangle.
+        //
+        // width:
+        // Type: System.Int32
+        // The width of the rectangle.
+        //
+        // height:
+        // Type: System.Int32
+        // The height of the rectangle.
+        //
+        // Screen Sizes:
+        //
+        // PresentationFramework.dll:
+        // SystemParameters.VirtualScreenWidth
+        // SystemParameters.VirtualScreenHeight
+        //
+        // System.Windows.Forms.dll:
+        // SystemInformation.VirtualScreen.Width
+        // SystemInformation.VirtualScreen.Height
+        //
+        // For console applications, add System.Windows to references for SystemParameters and System.Windows.Forms for SystemInformation.
+        #endregion
+
+        #region Control Events
         private void button1_Click(object sender, EventArgs e)
         {
             if (XLock == false)
             {
                 XLock = true;
                 button1.Text = "Toggle X-Axis Lock [ON]";
+
+                tempY = YAxis;
+                Cursor.Clip = new Rectangle(0, tempY, SystemInformation.VirtualScreen.Width, 1);
             }
             else if (XLock == true)
             {
                 XLock = false;
                 button1.Text = "Toggle X-Axis Lock [OFF]";
+
+                tempY = 0;
+                Cursor.Clip = new Rectangle();
             }
         }
 
@@ -50,11 +93,17 @@ namespace MouseXY
             {
                 YLock = true;
                 button2.Text = "Toggle Y-Axis Lock [ON]";
+
+                tempX = XAxis;
+                Cursor.Clip = new Rectangle(tempX, 0, 1, SystemInformation.VirtualScreen.Height);
             }
             else if (YLock == true)
             {
                 YLock = false;
                 button2.Text = "Toggle Y-Axis Lock [OFF]";
+
+                tempX = 0;
+                Cursor.Clip = new Rectangle();
             }
         }
 
@@ -76,32 +125,6 @@ namespace MouseXY
         {
             button4.Visible = false;
         }
-
-        #region GlobalHooks
-        public void Subscribe()
-        {
-            m_GlobalHook = Hook.GlobalEvents();
-            m_GlobalHook.MouseMove += HookManager_MouseMove;
-        }
-
-        public void Unsubscribe()
-        {
-            m_GlobalHook.MouseMove -= HookManager_MouseMove;
-            m_GlobalHook.Dispose();
-        }
-
-        private void CleanUp(object sender, CancelEventArgs e)
-        {
-            Unsubscribe();
-        }
-
-        private void HookManager_MouseMove(object sender, MouseEventArgs e)
-        {
-            this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
-            XAxis = e.X;
-            YAxis = e.Y;
-        }
-        #endregion
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -127,6 +150,7 @@ namespace MouseXY
                 MessageBox.Show(ex.ToString());
             }
         }
+        #endregion
 
         #region Control Focus Events
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -154,6 +178,37 @@ namespace MouseXY
         {
             button4.Visible = true;
             label1.Focus();
+        }
+        #endregion
+
+        #region GlobalHooks
+        public void Subscribe()
+        {
+            m_GlobalHook = Hook.GlobalEvents();
+            m_GlobalHook.MouseMove += HookManager_MouseMove;
+        }
+
+        public void Unsubscribe()
+        {
+            m_GlobalHook.MouseMove -= HookManager_MouseMove;
+            m_GlobalHook.Dispose();
+        }
+
+        private void CleanUp(object sender, CancelEventArgs e)
+        {
+            Unsubscribe();
+        }
+
+        private void HookManager_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
+            XAxis = e.X;
+            YAxis = e.Y;
+        }
+
+        private void HookManager_RestrictY(object sender, MouseEventArgs e)
+        {
+            this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
         }
         #endregion
     }
