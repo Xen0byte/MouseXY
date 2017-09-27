@@ -21,6 +21,7 @@ namespace MouseXY
         public static bool YLock = false;
         public static bool CLock = false;
         public static int CRad = 150;
+        public static int CIncrement = 50;
 
         public Interface()
         {
@@ -73,7 +74,7 @@ namespace MouseXY
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            button4.Visible = false;
         }
 
         #region GlobalHooks
@@ -99,6 +100,60 @@ namespace MouseXY
             this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
             XAxis = e.X;
             YAxis = e.Y;
+        }
+        #endregion
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CRad = CRad - CIncrement;
+            button4.Text = "Radius = " + CRad + "\n\r" + "Increment = " + CIncrement;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CRad = CRad + CIncrement;
+            button4.Text = "Radius = " + CRad + "\n\r" + "Increment = " + CIncrement;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CIncrement = Convert.ToInt32(textBox1.Text);
+                button4.Text = "Radius = " + CRad + "\n\r" + "Increment = " + CIncrement;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        #region Control Focus Events
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button4.Visible = true;
+                label1.Focus();
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            button4.Visible = true;
+            label1.Focus();
+        }
+
+        private void button5_MouseHover(object sender, EventArgs e)
+        {
+            button4.Visible = true;
+            label1.Focus();
+        }
+
+        private void button6_MouseHover(object sender, EventArgs e)
+        {
+            button4.Visible = true;
+            label1.Focus();
         }
         #endregion
     }
