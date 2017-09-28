@@ -45,7 +45,7 @@
             this.button1.Location = new System.Drawing.Point(66, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(445, 38);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.TabStop = false;
             this.button1.Text = "Toggle X-Axis Lock [OFF]";
             this.button1.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             this.button2.Location = new System.Drawing.Point(66, 56);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(445, 38);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 3;
             this.button2.TabStop = false;
             this.button2.Text = "Toggle Y-Axis Lock [OFF]";
             this.button2.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@
             this.button3.Location = new System.Drawing.Point(12, 100);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(247, 38);
-            this.button3.TabIndex = 3;
+            this.button3.TabIndex = 4;
             this.button3.TabStop = false;
             this.button3.Text = "Toggle Circle Lock [OFF]";
             this.button3.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             this.button4.Location = new System.Drawing.Point(319, 100);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(138, 38);
-            this.button4.TabIndex = 5;
+            this.button4.TabIndex = 6;
             this.button4.TabStop = false;
             this.button4.Text = "Radius = 150\n\rIncrement = 50";
             this.button4.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.button5.Location = new System.Drawing.Point(265, 100);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(48, 38);
-            this.button5.TabIndex = 4;
+            this.button5.TabIndex = 5;
             this.button5.TabStop = false;
             this.button5.Text = "-";
             this.button5.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.button6.Location = new System.Drawing.Point(463, 100);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(48, 38);
-            this.button6.TabIndex = 7;
+            this.button6.TabIndex = 8;
             this.button6.TabStop = false;
             this.button6.Text = "+";
             this.button6.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             this.textBox1.Location = new System.Drawing.Point(403, 110);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(42, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.TabIndex = 7;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "50";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -136,7 +136,7 @@
             this.button7.Location = new System.Drawing.Point(12, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(48, 82);
-            this.button7.TabIndex = 0;
+            this.button7.TabIndex = 1;
             this.button7.TabStop = false;
             this.button7.Text = "?";
             this.button7.UseVisualStyleBackColor = true;

@@ -72,7 +72,12 @@ namespace MouseXY
             if (XLock == false)
             {
                 XLock = true;
+                YLock = false;
+                CLock = false;
+
                 button1.Text = "Toggle X-Axis Lock [ON]";
+                button2.Text = "Toggle Y-Axis Lock [OFF]";
+                button3.Text = "Toggle Circle Lock [OFF]";
 
                 tempY = YAxis;
                 Cursor.Clip = new Rectangle(0, tempY, SystemInformation.VirtualScreen.Width, 1);
@@ -91,8 +96,13 @@ namespace MouseXY
         {
             if (YLock == false)
             {
+                XLock = false;
                 YLock = true;
+                CLock = false;
+
+                button1.Text = "Toggle X-Axis Lock [OFF]";
                 button2.Text = "Toggle Y-Axis Lock [ON]";
+                button3.Text = "Toggle Circle Lock [OFF]";
 
                 tempX = XAxis;
                 Cursor.Clip = new Rectangle(tempX, 0, 1, SystemInformation.VirtualScreen.Height);
@@ -111,7 +121,12 @@ namespace MouseXY
         {
             if (CLock == false)
             {
+                XLock = false;
+                YLock = false;
                 CLock = true;
+
+                button1.Text = "Toggle X-Axis Lock [OFF]";
+                button2.Text = "Toggle Y-Axis Lock [OFF]";
                 button3.Text = "Toggle Circle Lock [ON]";
             }
             else if (CLock == true)
@@ -157,13 +172,13 @@ namespace MouseXY
             MessageBox.Show
                 (
                 "built by Xen0byte" + "\n\r" +
-                "https://github.com/Xen0byte" + "\n\r\n\r" +
-                "HOTKEYS:" + "\n\r" +
-                "Toggle X-Axis Lock: Alt+X" + "\n\r" +
-                "Toggle Y-Axis Lock: Alt+Y" + "\n\r" +
-                "Toggle Circle Lock: Alt+C" + "\n\r" +
-                "Decrease Circle Radius: Alt+Left" + "\n\r" +
-                "Increase Circle Radius: Alt+Right" + "\n\r",
+                "https://github.com/Xen0byte" + "\n\r\n\r\n\r" +
+                "HOTKEYS:" + "\n\r\n\r" +
+                "Toggle X-Axis Lock:   Alt+X" + "\n\r" +
+                "Toggle Y-Axis Lock:   Alt+Y" + "\n\r" +
+                "Toggle Circle Lock:   Alt+C" + "\n\r" +
+                "Decrease Circle Radius:   Alt+Left" + "\n\r" +
+                "Increase Circle Radius:   Alt+Right",
                 "MouseXY"
                 );
         }
