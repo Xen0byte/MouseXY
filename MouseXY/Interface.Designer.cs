@@ -36,13 +36,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(66, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(499, 38);
+            this.button1.Size = new System.Drawing.Size(445, 38);
             this.button1.TabIndex = 1;
             this.button1.TabStop = false;
             this.button1.Text = "Toggle X-Axis Lock [OFF]";
@@ -51,9 +52,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 56);
+            this.button2.Location = new System.Drawing.Point(66, 56);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(499, 38);
+            this.button2.Size = new System.Drawing.Size(445, 38);
             this.button2.TabIndex = 2;
             this.button2.TabStop = false;
             this.button2.Text = "Toggle Y-Axis Lock [OFF]";
@@ -64,7 +65,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(12, 100);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(242, 38);
+            this.button3.Size = new System.Drawing.Size(247, 38);
             this.button3.TabIndex = 3;
             this.button3.TabStop = false;
             this.button3.Text = "Toggle Circle Lock [OFF]";
@@ -129,11 +130,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Set Increment:";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(12, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(48, 82);
+            this.button7.TabIndex = 0;
+            this.button7.TabStop = false;
+            this.button7.Text = "?";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 150);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -143,14 +156,14 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Interface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "X=0000 | Y=0000";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
 
         private System.Windows.Forms.Button button1;
@@ -161,6 +174,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
     }
 }
-

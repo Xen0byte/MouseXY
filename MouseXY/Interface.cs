@@ -150,6 +150,23 @@ namespace MouseXY
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show
+                (
+                "built by Xen0byte" + "\n\r" +
+                "https://github.com/Xen0byte" + "\n\r\n\r" +
+                "HOTKEYS:" + "\n\r" +
+                "Toggle X-Axis Lock: Alt+X" + "\n\r" +
+                "Toggle Y-Axis Lock: Alt+Y" + "\n\r" +
+                "Toggle Circle Lock: Alt+C" + "\n\r" +
+                "Decrease Circle Radius: Alt+Left" + "\n\r" +
+                "Increase Circle Radius: Alt+Right" + "\n\r",
+                "MouseXY"
+                );
+        }
         #endregion
 
         #region Control Focus Events
@@ -186,11 +203,13 @@ namespace MouseXY
         {
             m_GlobalHook = Hook.GlobalEvents();
             m_GlobalHook.MouseMove += HookManager_MouseMove;
+            m_GlobalHook.KeyDown += OnKeyDown;
         }
 
         public void Unsubscribe()
         {
             m_GlobalHook.MouseMove -= HookManager_MouseMove;
+            m_GlobalHook.KeyDown -= OnKeyDown;
             m_GlobalHook.Dispose();
         }
 
@@ -206,9 +225,18 @@ namespace MouseXY
             YAxis = e.Y;
         }
 
-        private void HookManager_RestrictY(object sender, MouseEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
-            this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
+            if (e.Alt && e.KeyCode == Keys.X)
+                button1.PerformClick();
+            else if (e.Alt && e.KeyCode == Keys.Y)
+                button2.PerformClick();
+            else if (e.Alt && e.KeyCode == Keys.C)
+                button3.PerformClick();
+            else if (e.Alt && e.KeyCode == Keys.Left)
+                button5.PerformClick();
+            else if (e.Alt && e.KeyCode == Keys.Right)
+                button6.PerformClick();
         }
         #endregion
     }
