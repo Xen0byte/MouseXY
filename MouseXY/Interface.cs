@@ -220,7 +220,7 @@ namespace MouseXY
 
         private void HookManager_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = string.Format("X={0:0000} | Y={1:0000}", e.X, e.Y);
+            this.Text = string.Format("    X={0:0000} | Y={1:0000}", e.X, e.Y);
             XAxis = e.X;
             YAxis = e.Y;
         }
