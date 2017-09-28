@@ -173,12 +173,13 @@ namespace MouseXY
                 (
                 "built by Xen0byte" + "\n\r" +
                 "https://github.com/Xen0byte" + "\n\r\n\r\n\r" +
-                "HOTKEYS:" + "\n\r\n\r" +
-                "Toggle X-Axis Lock:   Alt+X" + "\n\r" +
-                "Toggle Y-Axis Lock:   Alt+Y" + "\n\r" +
-                "Toggle Circle Lock:   Alt+C" + "\n\r" +
-                "Decrease Circle Radius:   Alt+Left" + "\n\r" +
-                "Increase Circle Radius:   Alt+Right",
+                "H       Toggle X-Axis Lock:   Alt+X" + "\n\r" +
+                "O       Toggle Y-Axis Lock:   Alt+Y" + "\n\r" +
+                "T        Toggle Circle Lock:   Alt+C" + "\n\r" +
+                "K        Decrease Circle Radius:   Alt+Left" + "\n\r" +
+                "E        Increase Circle Radius:   Alt+Right" + "\n\r" +
+                "Y" + "\n\r" +
+                "S",
                 "MouseXY"
                 );
         }
